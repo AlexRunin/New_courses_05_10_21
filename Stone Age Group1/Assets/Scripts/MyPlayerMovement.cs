@@ -30,7 +30,7 @@ public class MyPlayerMovement : MonoBehaviour
     private Rigidbody2D rb;
     private bool groundCheck; // проверка земли
 
-    private string lastObjectEated;
+    public string lastObjectEated; // private
     Vector3 defaultPosition;
 
     Vector3 defaultWeaponPosition;
@@ -241,33 +241,35 @@ public class MyPlayerMovement : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         groundCheck = true;
-
+      
         switch (collision.tag)
         {
-            case "Banana":
-                {
-                    EateFruit(collision.gameObject);
-                    lastObjectEated = collision.tag;
-                }
-                break;
-            case "Mushroom":
-                {
-                    EateMushroom(collision.gameObject);
-                    lastObjectEated = collision.tag;
-                }
-                break;
-            case "Orange":
-                {
-                    EateFruit(collision.gameObject);
-                    lastObjectEated = collision.tag;
-                }
-                break;
-            case "SpecialMushroom":
-                {
-                    EateMushroom(collision.gameObject, true);
-                    lastObjectEated = collision.tag;
-                }
-                break;
+            /*
+          case "Banana":
+              {
+                  EateFruit(collision.gameObject);
+                  lastObjectEated = collision.tag;
+              }
+              break;
+          case "Mushroom":
+              {
+                  EateMushroom(collision.gameObject);
+                  lastObjectEated = collision.tag;
+              }
+              break;
+          case "Orange":
+              {
+                  EateFruit(collision.gameObject);
+                  lastObjectEated = collision.tag;
+              }
+              break;
+          case "SpecialMushroom":
+              {
+                  EateMushroom(collision.gameObject, true);
+                  lastObjectEated = collision.tag;
+              }
+              break;
+      */
             case "Water":
                 {
                     if (lastObjectEated != "SpecialMushroom")
@@ -292,8 +294,15 @@ public class MyPlayerMovement : MonoBehaviour
                     }
                     lastObjectEated = collision.tag;
                 }
-                break;
-            
+                break;  
+        }
+        
+        EatingAnything eatingAnything = collision.GetComponent<EatingAnything>();
+        if (eatingAnything != null)
+        {
+            eatingAnything.EatingEffects();
+            EateFruit(collision.gameObject);
+            //EateMushroom(collision.gameObject, true);
         }
     }
 
