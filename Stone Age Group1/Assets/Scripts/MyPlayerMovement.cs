@@ -302,7 +302,7 @@ public class MyPlayerMovement : MonoBehaviour
         {
             eatingAnything.EatingEffects();
             EateFruit(collision.gameObject);
-            //EateMushroom(collision.gameObject, true);
+            EateMushroom(collision.gameObject);
         }
     }
 
