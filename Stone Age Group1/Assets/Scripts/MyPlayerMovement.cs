@@ -35,6 +35,9 @@ public class MyPlayerMovement : MonoBehaviour
 
     Vector3 defaultWeaponPosition;
     Quaternion defaultWeaponRotation;
+
+    public static event Action EatingEvent;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -48,6 +51,8 @@ public class MyPlayerMovement : MonoBehaviour
     private void Start()
     {
         StartCoroutine("MakeHungry");
+
+        EatingEvent?.Invoke();
     }
 
     // Движение
@@ -221,6 +226,7 @@ public class MyPlayerMovement : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        /*
         switch (collision.gameObject.tag)
         {
             case "Banana":
@@ -236,6 +242,7 @@ public class MyPlayerMovement : MonoBehaviour
                 }
                 break;
         }
+        */
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -305,6 +312,8 @@ public class MyPlayerMovement : MonoBehaviour
             EateMushroom(collision.gameObject);
         }
     }
+
+    
 
 
     private int hungryLevelCount = 100;
