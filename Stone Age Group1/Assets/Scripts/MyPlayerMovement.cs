@@ -272,13 +272,14 @@ public class MyPlayerMovement : MonoBehaviour
                   lastObjectEated = collision.tag;
               }
               break;
-          case "SpecialMushroom":
+            */
+            case "SpecialMushroom":
               {
                   EateMushroom(collision.gameObject, true);
                   lastObjectEated = collision.tag;
               }
               break;
-      */
+      
             case "Water":
                 {
                     if (lastObjectEated != "SpecialMushroom")
