@@ -2082,7 +2082,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 588, y: 434}
+  m_AnchoredPosition: {x: 588, y: 380}
   m_SizeDelta: {x: 689.35, y: 75.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &782830307
@@ -15129,6 +15129,7 @@ MonoBehaviour:
   hungryLevel: {fileID: 39049779}
   overlayMenu: {fileID: 927347174}
   levelCount: 3
+  lastObjectEated: 
 --- !u!58 &6072520907585909923
 CircleCollider2D:
   m_ObjectHideFlags: 0
