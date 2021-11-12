@@ -6,22 +6,26 @@ using UnityEngine.UI;
 
 public class Banana : EatingAnything
 {
-    //[SerializeField] private Image hungryLevel;
+    [SerializeField] private Image hungryLevel;
+    [SerializeField] private GameObject[] health;
+    [SerializeField] private AttackController attackController;
+    private int hungryLevelCount = 100;
+    //MyPlayerMovement playerMovement = new MyPlayerMovement();
 
 
     private void OnEnable()
     {
-        MyPlayerMovement.EatingEvent += EatingEffects;
+        //MyPlayerMovement.EatingEvent += EatingEffects;
     }
     private void OnDisable()
     {
-        MyPlayerMovement.EatingEvent -= EatingEffects;
+        //MyPlayerMovement.EatingEvent -= EatingEffects;
     }
 
     public override void EatingEffects(GameObject fruit)
     {
         Debug.Log("Eating Banana");
-        GameObject.Destroy(fruit);
+        Destroy(fruit);
 
         if (!attackController.IsHit)
         {
@@ -40,5 +44,5 @@ public class Banana : EatingAnything
 
             hungryLevelCount += 25;
         } 
-}
+    }
 }

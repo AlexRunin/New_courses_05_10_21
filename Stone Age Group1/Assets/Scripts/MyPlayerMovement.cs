@@ -164,6 +164,7 @@ public class MyPlayerMovement : MonoBehaviour
     }
 
     bool isDeath = false;
+    /*
     public void EateFruit(GameObject fruit)
     {
         GameObject.Destroy(fruit);
@@ -186,6 +187,7 @@ public class MyPlayerMovement : MonoBehaviour
             hungryLevelCount += 25;
         }
     }
+    */
 
     public void EateMushroom(GameObject mushroom, bool isSpecial = false)
     {
@@ -307,8 +309,8 @@ public class MyPlayerMovement : MonoBehaviour
         EatingAnything eatingAnything = collision.GetComponent<EatingAnything>();
         if (eatingAnything != null)
         {
-            eatingAnything.EatingEffects();
-            EateFruit(collision.gameObject);
+            eatingAnything.EatingEffects(collision.gameObject);
+            //EateFruit(collision.gameObject);
             EateMushroom(collision.gameObject);
         }
     }

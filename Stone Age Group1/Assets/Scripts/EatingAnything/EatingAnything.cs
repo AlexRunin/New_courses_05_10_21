@@ -6,7 +6,5 @@ using UnityEngine.UI;
 
 public abstract class EatingAnything : MonoBehaviour
 {
-    //[SerializeField] abstract private Image hungryLevel;
-
-    public abstract void EatingEffects();
+    public abstract void EatingEffects(GameObject fruit);
 }
